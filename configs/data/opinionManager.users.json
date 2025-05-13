@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "67bcf9044390ab7219e1f785"
+  },
+  "name": "Alejandro",
+  "surname": "Cuxún",
+  "username": "administrador",
+  "email": "alejandrocuxun@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$QUOQGjUEX+W2C+2dZaw84A$IgP70BbFqtV5knTc69nIExyxAinHhABtwR2jZHzSlYo",
+  "phone": "42217005",
+  "role": "ADMIN",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-24T22:56:04.670Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T22:56:04.670Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bcf9e24390ab7219e1f78b"
+  },
+  "name": "Daniel",
+  "surname": "Figueroa",
+  "username": "figuer0a",
+  "email": "danielfigueroa@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$TSrAB4518lIrJQ9C/53H5Q$eq3Q3h0s4OG9HNessHcp5fqNaAG+9LqCLgoVlsmRGI0",
+  "phone": "41526378",
+  "role": "USER",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-24T22:59:46.455Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T22:59:46.455Z"
+  }
+}]

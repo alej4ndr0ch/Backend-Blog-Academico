@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "6e3f8362-a065-424a-aeef-465626a73f32",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42042928"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Daniel\", \r\n    \"surname\" : \"Figueroa\",\r\n    \"username\" : \"figuer0a\",\r\n    \"email\" : \"danielfigueroa@gmail.com\",\r\n    \"password\" : \"barcelona1994\",\r\n    \"phone\" : \"41526378\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"Administrador\",\r\n    \"password\" : \"Admin100\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List by id user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/users/67bc8549aab42ac7eb2e326b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"users",
+						"67bc8549aab42ac7eb2e326b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjODU0OWFhYjQyYWM3ZWIyZTMyNmIiLCJpYXQiOjE3NDA0MDkyNDUsImV4cCI6MTc0MDQxMjg0NX0.FaEssxdAu9iyOZCTcveQb83rrLG07m55IhhHe3akB3Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"pablo\", \r\n    \"surname\" : \"ochoa\",\r\n    \"username\" : \"0choa\",\r\n    \"email\" : \"pabloochoa@gmail.com\",\r\n    \"currentPassword\" : \"barcelona2007\",\r\n    \"password\" : \"barcelona2005\",\r\n    \"phone\" : \"85214796\",\r\n    \"role\" : \"USER\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/users/67bc8549aab42ac7eb2e326b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"users",
+						"67bc8549aab42ac7eb2e326b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

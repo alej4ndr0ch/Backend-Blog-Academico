@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "3c9886b3-7a81-450d-bb3a-b4f44964b3eb",
+		"name": "Categories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42042928"
+	},
+	"item": [
+		{
+			"name": "Add categories",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjZjkwNDQzOTBhYjcyMTllMWY3ODUiLCJpYXQiOjE3NDA0MzgyMzcsImV4cCI6MTc0MDQ0MTgzN30.7E2-b-4jCCx2M-LnagJjV0LVHlLw8gDqewUQL2r9Vig",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Futbol\",\r\n    \"description\" : \"categoria donde se publicara cosas relacionadas al Futbol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/categories/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"categories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List by id categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/categories/findCategorie/67bc8d20aab42ac7eb2e32a7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"categories",
+						"findCategorie",
+						"67bc8d20aab42ac7eb2e32a7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put categories",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOTBmMGYzM2UwNzc3YTA4NWUxMGMiLCJpYXQiOjE3NDA0MTExMzQsImV4cCI6MTc0MDQxNDczNH0.ZMVepq1eA-sX7nw5b1kZoM6FzOmjWaA8bF5Au778X80",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"futbol\",\r\n    \"description\" : \"categoria donde se publicara cosas relacionado al futbol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/categories/67bc8d20aab42ac7eb2e32a7?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"categories",
+						"67bc8d20aab42ac7eb2e32a7"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete categories",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOTBmMGYzM2UwNzc3YTA4NWUxMGMiLCJpYXQiOjE3NDA0MTExMzQsImV4cCI6MTc0MDQxNDczNH0.ZMVepq1eA-sX7nw5b1kZoM6FzOmjWaA8bF5Au778X80",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/categories/67bc8d20aab42ac7eb2e32a7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"categories",
+						"67bc8d20aab42ac7eb2e32a7"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

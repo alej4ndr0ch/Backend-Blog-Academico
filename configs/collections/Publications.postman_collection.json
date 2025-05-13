@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "c7d7bf59-5eb5-4cc6-8160-808564f11321",
+		"name": "Publications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42042928"
+	},
+	"item": [
+		{
+			"name": "Add pubications",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Disputas por la nueva ley de reciclaje\",\r\n    \"content\" : \"La nueva ley ha provocado muchos disturbios por la gente que trabajaba en distribuir la basura\",\r\n    \"username\" : \"administrador\",\r\n    \"name\" : \"general\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/publications/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"publications",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List publications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/publications/?limite=10&desde=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"publications",
+						""
+					],
+					"query": [
+						{
+							"key": "limite",
+							"value": "10"
+						},
+						{
+							"key": "desde",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List by id publications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/publications/67bcaaeaabaa8ab0e4462641",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"publications",
+						"67bcaaeaabaa8ab0e4462641"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put publications",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOTBmMGYzM2UwNzc3YTA4NWUxMGMiLCJpYXQiOjE3NDA0MTgyNTAsImV4cCI6MTc0MDQyMTg1MH0.7ifomKvR4ZP6B9BiwTuhAdzcjtX3ah_ZM1DhL0LBa2k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Trailer de GTA VI\",\r\n    \"content\" : \"El trailer de GTA VI ha emocionado a los fans de la franquicia, se estranara en otoño del 2025\",\r\n    \"username\" : \"andr3\",\r\n    \"name\" : \"videojuegos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/publications/67bcac04abaa8ab0e4462650",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"publications",
+						"67bcac04abaa8ab0e4462650"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete publications",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjOTBmMGYzM2UwNzc3YTA4NWUxMGMiLCJpYXQiOjE3NDA0MTgyNTAsImV4cCI6MTc0MDQyMTg1MH0.7ifomKvR4ZP6B9BiwTuhAdzcjtX3ah_ZM1DhL0LBa2k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/publications/67bcad7eabaa8ab0e4462662",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"publications",
+						"67bcad7eabaa8ab0e4462662"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

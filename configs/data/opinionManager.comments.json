@@ -1,0 +1,38 @@
+[{
+  "_id": {
+    "$oid": "67be57a285226c1a854aee40"
+  },
+  "text": "El barcelona es el mejor equipo del mundo",
+  "user": {
+    "$oid": "67bcf9e24390ab7219e1f78b"
+  },
+  "publication": {
+    "$oid": "67bcfb7d4390ab7219e1f797"
+  },
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-25T23:52:02.558Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-25T23:52:02.558Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67be5e8385226c1a854aee50"
+  },
+  "text": "El barcelona podria ganar otro sextete",
+  "user": {
+    "$oid": "67bcf9044390ab7219e1f785"
+  },
+  "publication": {
+    "$oid": "67bcfb7d4390ab7219e1f797"
+  },
+  "estado": false,
+  "createdAt": {
+    "$date": "2025-02-26T00:21:23.503Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T00:28:13.967Z"
+  }
+}]

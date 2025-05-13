@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "468f41ce-8e0f-449f-86e3-3c48b7c7c3ae",
+		"name": "Comments",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42042928"
+	},
+	"item": [
+		{
+			"name": "Add comments",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\" : \"una verguenza lo que esta pasando en el pais\",\r\n    \"username\" : \"administrador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/67bcfb7d4390ab7219e1f797",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"67bcfb7d4390ab7219e1f797"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List by id comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/findComment/67bcfb7d4390ab7219e1f797",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"findComment",
+						"67bcfb7d4390ab7219e1f797"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put comments",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjZjkwNDQzOTBhYjcyMTllMWY3ODUiLCJpYXQiOjE3NDA1Mjk1MjYsImV4cCI6MTc0MDUzMzEyNn0.tJTvONkPYmxLQcVgSEqj1Q78iGu8o3qg-xGLNP90yFE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\" : \"El barcelona podria ganar otro sextete\",\r\n    \"username\" : \"administrador\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/67be5e8385226c1a854aee50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"67be5e8385226c1a854aee50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete comments",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2JjZjkwNDQzOTBhYjcyMTllMWY3ODUiLCJpYXQiOjE3NDA1Mjk2NTksImV4cCI6MTc0MDUzMzI1OX0.dX9A27DBv2lghk6BXL5SkoW4iC7Z1T0E-dDsHYeGxmA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/opinionManager/v1/comments/67be5e8385226c1a854aee50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"opinionManager",
+						"v1",
+						"comments",
+						"67be5e8385226c1a854aee50"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

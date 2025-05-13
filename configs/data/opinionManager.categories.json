@@ -1,0 +1,28 @@
+[{
+  "_id": {
+    "$oid": "67bcf9044390ab7219e1f788"
+  },
+  "name": "general",
+  "description": "Categoría por defecto para publicaciones sin una categoría especifica. No se puede eliminar ni editar",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-24T22:56:04.702Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T22:56:04.702Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67bcfafd4390ab7219e1f791"
+  },
+  "name": "futbol",
+  "description": "categoria donde se publicara cosas relacionadas al Futbol",
+  "estado": true,
+  "createdAt": {
+    "$date": "2025-02-24T23:04:29.810Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-24T23:04:29.810Z"
+  }
+}]

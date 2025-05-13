@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "67bcfb7d4390ab7219e1f797"
+  },
+  "title": "Barcelona gana la champions del 2025",
+  "content": "El equipo de cataluña gano la champions league luego de 10 años en Munchen, siendo su sexta champions league ganada",
+  "user": {
+    "$oid": "67bcf9e24390ab7219e1f78b"
+  },
+  "categorie": {
+    "$oid": "67bcfafd4390ab7219e1f791"
+  },
+  "estado": true,
+  "DateAndTime": "2025-02-24 23:06",
+  "createdAt": {
+    "$date": "2025-02-24T23:06:37.412Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T00:26:17.053Z"
+  },
+  "comment": [
+    {
+      "$oid": "67be57a285226c1a854aee40"
+    },
+    {
+      "$oid": "67be5e8385226c1a854aee50"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "67be5e4485226c1a854aee49"
+  },
+  "title": "Disputas por la nueva ley de reciclaje",
+  "content": "La nueva ley ha provocado muchos disturbios por la gente que trabajaba en distribuir la basura",
+  "user": {
+    "$oid": "67bcf9044390ab7219e1f785"
+  },
+  "categorie": {
+    "$oid": "67bcf9044390ab7219e1f788"
+  },
+  "comment": [],
+  "estado": true,
+  "DateAndTime": "2025-02-26 00:20",
+  "createdAt": {
+    "$date": "2025-02-26T00:20:20.843Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-26T00:20:20.843Z"
+  }
+}]
