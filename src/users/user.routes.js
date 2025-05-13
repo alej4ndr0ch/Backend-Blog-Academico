@@ -9,20 +9,6 @@ import { validatorRegister, validatorLogin } from "../middlewares/validator.js";
 
 const router = Router();
 
-router.post(
-    '/login',
-    validatorLogin,
-    deleteFileOnError,
-    login
-);
-
-router.post(
-    '/register',
-    validatorRegister,
-    deleteFileOnError,
-    register
-);
-
 router.get(
     '/',
     getUsers

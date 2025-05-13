@@ -7,65 +7,65 @@ import {
 } from '../middlewares/validate-auth.js';
 
 export const login = async (req, res) => {
- 
-    const { email, password, username } = req.body;
- 
-    try {
-       
-        const lowerEmail = email ? email.toLowerCase() : null;
-        const lowerUsername = username ? username.toLowerCase() : null;
- 
-        const user = await Usuario.findOne({
-            $or: [{ email: lowerEmail }, { username: lowerUsername }]
-        });
- 
-        if(!user){
-            return res.status(400).json({
-                msg: 'Credenciales incorrectas, Correo no existe en la base de datos'
-            });
-        }
- 
-        if(!user.estado){
-            return res.status(400).json({
-                msg: 'El usuario no existe en la base de datos'
-            });
-        }
- 
-        const validPassword = await verify(user.password, password);
-        if(!validPassword){
-            return res.status(400).json({
-                msg: 'La contraseña es incorrecta'
-            });
-        }
- 
-        const token = await generarJWT( user.id );
- 
-        return res.status(200).json({
-            msg: 'Inicio de sesión exitoso!!',
-            userDetails: {
-                _id: user.id,
-                username: user.username,
-                role: user.role,
-                token: token,
-            }
-        })
- 
-    } catch (e) {
-       
-        console.log(e);
- 
-        return res.status(500).json({
-            message: "Server error",
-            error: e.message
-        })
+
+  const { email, password, username } = req.body;
+
+  try {
+
+    const lowerEmail = email ? email.toLowerCase() : null;
+    const lowerUsername = username ? username.toLowerCase() : null;
+
+    const user = await Usuario.findOne({
+      $or: [{ email: lowerEmail }, { username: lowerUsername }]
+    });
+
+    if (!user) {
+      return res.status(400).json({
+        msg: 'Credenciales incorrectas, Correo no existe en la base de datos'
+      });
     }
+
+    if (!user.estado) {
+      return res.status(400).json({
+        msg: 'El usuario no existe en la base de datos'
+      });
+    }
+
+    const validPassword = await verify(user.password, password);
+    if (!validPassword) {
+      return res.status(400).json({
+        msg: 'La contraseña es incorrecta'
+      });
+    }
+
+    const token = await generateJWT(user.id);
+
+    return res.status(200).json({
+      msg: 'Inicio de sesión exitoso!!',
+      userDetails: {
+        _id: user.id,
+        username: user.username,
+        role: user.role,
+        token: token,
+      }
+    })
+
+  } catch (e) {
+
+    console.log(e);
+
+    return res.status(500).json({
+      message: "Server error",
+      error: e.message
+    })
+  }
 }
- 
+
 export const register = async (req, res) => {
   try {
 
     console.log("BODY RECIBIDO:", req.body)
-    
+
     verificarCamposRegistro(req, res);
 
     const data = req.body;
