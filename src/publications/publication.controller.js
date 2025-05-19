@@ -1,6 +1,7 @@
 import Publication from "./publication.model.js";
 import Courses from "../courses/courses.model.js";
 import User from "../users/user.model.js"
+import { existePublicationById } from "../helpers/db-validator.js";
 import { request, response } from "express";
 
 export const addPublication = async (req, res) => {
@@ -58,6 +59,35 @@ export const addPublication = async (req, res) => {
     }
 }
 
+export const uploadPublicationImage = async (req, res) => {
+    try {
+
+        const { id } = req.params || {};
+        const { image } = req.body || {};
+
+        await requiredImage(image);
+        await existePublicationById(id);
+
+        const publication = await Publication.findById(id);
+        await permisoPublication(req, publication);
+
+        publication.image = image;
+        await publication.save();
+
+        res.status(200).json({
+            success: true,
+            msg: "Imagen subida exitosamente!!",
+            publication
+        })
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            msg: "Error al subir la imagen",
+            error: error.message
+        })
+    }
+}
+
 export const getPublications = async (req = request, res = response) => {
     try {
         const { limite = 10, desde = 0 } = req.body;
@@ -66,7 +96,7 @@ export const getPublications = async (req = request, res = response) => {
             Publication.countDocuments(query),
             Publication.find(query)
            .populate('user')
-           .populate('categorie')
+           .populate('courses')
            .skip(Number(desde))
            .limit(Number(limite))
         ])
@@ -88,7 +118,9 @@ export const getPublications = async (req = request, res = response) => {
 export const getPublicationById = async (req, res) => {
     try {
         const { id } = req.params;
-        const publication = await Publication.findById(id).populate('user').populate('categorie');
+        const publication = await Publication.findById(id).
+        populate('user').
+        populate('courses');
 
         if (publication.estado === false) {
             return res.status(400).json({
