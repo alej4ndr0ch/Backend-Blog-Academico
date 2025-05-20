@@ -90,7 +90,7 @@ export const uploadPublicationImage = async (req, res) => {
 
 export const getPublications = async (req = request, res = response) => {
     try {
-        const { limite = 10, desde = 0 } = req.body;
+        const { limite = 10, desde = 0 } = req.query;
         const query = { estado: true };
         const [total, publications] = await Promise.all([
             Publication.countDocuments(query),
@@ -261,6 +261,40 @@ export const deletePublication = async (req, res = response) => {
         return res.status(500).json({
             success: false,
             msg: "Error, no se ha podido eliminar la publicación",
+            error
+        });
+    }
+}
+
+export const getPublicationsByCourse = async (req, res) => {
+    try {
+        const { name } = req.params;
+
+        const course = await Courses.findOne({ name: name.toLowerCase(), estado: true });
+
+        if (!course) {
+            return res.status(404).json({
+                success: false,
+                msg: "Curso no encontrado"
+            });
+        }
+
+        const publications = await Publication.find({ courses: course._id, estado: true })
+            .populate("user")
+            .populate("courses");
+
+        res.status(200).json({
+            success: true,
+            course: course.name,
+            total: publications.length,
+            publications
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            msg: "Error al buscar publicaciones por curso",
             error
         });
     }

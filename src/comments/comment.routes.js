@@ -3,54 +3,62 @@ import { check } from "express-validator";
 import { existeCommentById } from "../helpers/db-validator.js";
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarUserJWT } from "../middlewares/validar-jwt.js";
-import { addComments, getComments, getCommentsById, updateComments, deleteComments } from "./comment.controller.js";
+import {
+  addComments,
+  getComments,
+  getCommentsById,
+  updateComments,
+  deleteComments,
+  getCommentsByPublicationId,
+} from "./comment.controller.js";
 
 const router = Router();
 
 router.post(
-    '/:id',
-        check('id', 'No es un ID válido').isMongoId(),
-        check('text', 'El texto es obligatorio').not().isEmpty(),
-        check('username', 'El username es obligatorio').not().isEmpty(),
-        validarCampos,
-    addComments
+  "/:id",
+  [
+    check("id", "No es un ID válido").isMongoId(),
+    check("text", "El texto es obligatorio").not().isEmpty(),
+    check("username", "El username es obligatorio").not().isEmpty(),
+    validarCampos,
+  ],
+  addComments
 );
 
-router.get(
-    '/',
-    getComments
-);
+router.get("/", getComments);
 
 router.get(
-    '/',
-    [
-        check('id', 'No es un ID válido').isMongoId(),
-        check('id').custom(existeCommentById),
-        validarCampos
-    ],
-    getCommentsById
+  "/:id",
+  [
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeCommentById),
+    validarCampos,
+  ],
+  getCommentsById
 );
 
 router.put(
-    '/:id',
-    [
-        validarUserJWT,
-        check('id', 'No es un ID válido').isMongoId(),
-        check('id').custom(existeCommentById),
-        validarCampos
-    ],
-    updateComments
+  "/:id",
+  [
+    validarUserJWT,
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeCommentById),
+    validarCampos,
+  ],
+  updateComments
 );
 
 router.delete(
-    '/:id',
-    [
-        validarUserJWT,
-        check('id', 'No es un ID válido').isMongoId(),
-        check('id').custom(existeCommentById),
-        validarCampos
-    ],
-    deleteComments
+  "/:id",
+  [
+    validarUserJWT,
+    check("id", "No es un ID válido").isMongoId(),
+    check("id").custom(existeCommentById),
+    validarCampos,
+  ],
+  deleteComments
 );
+
+router.get("/publication/:id", getCommentsByPublicationId);
 
 export default router;

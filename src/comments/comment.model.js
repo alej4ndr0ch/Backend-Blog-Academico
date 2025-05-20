@@ -1,34 +1,37 @@
 import { Schema, model } from "mongoose";
 
-const CommentSchema = Schema({
+const CommentSchema = Schema(
+  {
     text: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     user: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
-        required: false
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: false,
     },
     publication: {
-        type: Schema.Types.ObjectId,
-        ref: "Publication",
-        required: true
+      type: Schema.Types.ObjectId,
+      ref: "Publication",
+      required: true,
     },
     DateAndTime: {
-        type: String,
-        default: () => {
-            const current = new Date();
-            return current.toISOString().slice(0, 16).replace("T", " ");
-        }
+      type: String,
+      default: () => {
+        const current = new Date();
+        return current.toISOString().slice(0, 16).replace("T", " ");
+      },
     },
     estado: {
-        type: Boolean,
-        default: true
-    }
-}, {
+      type: Boolean,
+      default: true,
+    },
+  },
+  {
     timestamps: true,
-    versionKey: false
-})
+    versionKey: false,
+  }
+);
 
 export default model("Comment", CommentSchema);
