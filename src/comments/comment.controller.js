@@ -8,10 +8,16 @@ export const addComments = async (req, res) => {
     console.log("Datos recibidos en el backend:", req.body);
 
     const { id } = req.params;
-    const data = req.body;
+    const { text, username } = req.body;
+
+    if (!text || !username) {
+      return res.status(400).json({
+        success: false,
+        msg: "Faltan campos requeridos (text o username)",
+      });
+    }
 
     const publication = await Publication.findById(id);
-
     if (!publication) {
       return res.status(400).json({
         success: false,
@@ -20,27 +26,16 @@ export const addComments = async (req, res) => {
     }
 
     const comment = await Comment.create({
-      text: data.text,
+      text,
       publication: publication._id,
+      username,
     });
-
-    if (req.user) {
-      commentData.user = req.user._id;
-    }
 
     publication.comment.push(comment._id);
     await publication.save();
 
     const commentDetails = await Comment.findById(comment._id)
-      .populate("user", "username")
-      .populate({
-        path: "publication",
-        select: "title content",
-        populate: {
-          path: "user",
-          select: "username",
-        },
-      });
+      .populate("publication", "title content");
 
     res.status(200).json({
       success: true,
@@ -59,7 +54,7 @@ export const addComments = async (req, res) => {
 
 export const getComments = async (req = request, res = response) => {
   try {
-    const { limite = 10, desde = 0 } = req.body;
+    const { limite = 10, desde = 0 } = req.query;
     const query = { estado: true };
 
     const [total, comments] = await Promise.all([
@@ -86,11 +81,12 @@ export const getComments = async (req = request, res = response) => {
   } catch (error) {
     res.status(500).json({
       success: false,
-      msg: "Error, no se ha podido obtener los comentario",
+      msg: "Error, no se ha podido obtener los comentarios",
       error,
     });
   }
 };
+
 
 export const getCommentsById = async (req, res) => {
   try {
