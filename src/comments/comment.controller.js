@@ -103,6 +103,13 @@ export const getCommentsById = async (req, res) => {
         },
       });
 
+      if (!comment) {
+        return res.status(404).json({
+          success: false,
+          msg: "El comentario no ha sido encontrado",
+        });
+      }
+      
     if (comment.estado === false) {
       return res.status(400).json({
         success: false,
@@ -110,12 +117,6 @@ export const getCommentsById = async (req, res) => {
       });
     }
 
-    if (!comment) {
-      return res.status(404).json({
-        success: false,
-        msg: "El comentario no ha sido encontrado",
-      });
-    }
 
     res.status(200).json({
       success: true,
@@ -249,14 +250,21 @@ export const deleteComments = async (req, res = response) => {
 export const getCommentsByPublicationId = async (req, res) => {
   try {
     const { id } = req.params;
+    const { limite = 10, desde = 0 } = req.query;
 
-    const comments = await Comment.find({ publication: id, estado: true })
-      .populate("user")
-      .populate("publication");
+    const [total, comments] = await Promise.all([
+      Comment.countDocuments({ publication: id, estado: true }),
+      Comment.find({ publication: id, estado: true })
+        .populate("user")
+        .populate("publication")
+        .skip(Number(desde))
+        .limit(Number(limite))
+        .sort({ createdAt: -1 }), // opcional
+    ]);
 
     res.json({
       success: true,
-      total: comments.length,
+      total,
       comments,
     });
   } catch (error) {

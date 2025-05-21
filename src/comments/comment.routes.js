@@ -38,20 +38,18 @@ router.get(
 );
 
 router.put(
-  "/:id",
+  "/:id", 
   [
-    validarUserJWT,
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeCommentById),
     validarCampos,
-  ],
+  ], 
   updateComments
 );
 
 router.delete(
   "/:id",
   [
-    validarUserJWT,
     check("id", "No es un ID válido").isMongoId(),
     check("id").custom(existeCommentById),
     validarCampos,
